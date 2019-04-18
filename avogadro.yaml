@@ -6,6 +6,9 @@ config-opts:
 - -DCMAKE_BUILD_TYPE=Release
 - -DPREFIX=/app
 - -DCMAKE_INSTALL_PREFIX=/app
+- -Wno-dev
+post-install:
+- install -Dm644 ../avogadro/src/icons/avogadro.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/avogadro.svg 
 sources:
 - type: archive
   url: https://downloads.sourceforge.net/project/avogadro/avogadro/1.2.0/avogadro-1.2.0.tar.gz
