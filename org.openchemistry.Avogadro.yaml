@@ -1,0 +1,32 @@
+---
+app-id: org.openchemistry.Avogadro
+branch: '1.2.0'
+runtime: org.freedesktop.Platform
+runtime-version: '18.08'
+sdk: org.freedesktop.Sdk
+command: avogadro
+rename-desktop-file: avogadro.desktop
+rename-icon: avogadro
+copy-icon: true
+finish-args:
+- --device=dri
+- --share=ipc
+- --share=network
+- --socket=x11
+- --socket=wayland
+- --filesystem=home
+build-options:
+ cflags: -fPIC
+ cxxflags: -fPIC
+modules:
+- modules/qt4/qt4.json
+- modules/pyqt4.yaml
+- modules/eigen.yaml
+- modules/openbabel.yaml
+- modules/boost.yaml
+- modules/libmsym.yaml
+- modules/glew.yaml
+- modules/glu.yaml
+- modules/spglib.yaml
+- avogadro.yaml
+

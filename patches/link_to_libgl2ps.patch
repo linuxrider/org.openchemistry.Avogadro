@@ -1,0 +1,24 @@
+--- ./libavogadro/src/extensions/CMakeLists.txt.orig	2016-10-02 09:53:55.174600742 +0200
++++ ./libavogadro/src/extensions/CMakeLists.txt	2016-10-02 09:56:03.686596393 +0200
+@@ -4,10 +4,6 @@
+ 
+ set(DESTINATION_DIR ${Avogadro_PLUGIN_INSTALL_DIR}/extensions)
+ 
+-include_directories(${CMAKE_CURRENT_BINARY_DIR}
+-  "${CMAKE_CURRENT_SOURCE_DIR}/gl2ps"
+-)
+-
+ set(LINK_LIBS avogadro)
+ set(PLUGIN_LABEL extensions)
+ set(PLUGIN_TARGET extensions)
+@@ -124,7 +120,9 @@
+ 
+ # GL2PS
+ avogadro_plugin(gl2psextension
+-  "gl2psextension.cpp;gl2ps/gl2ps.c")
++  "gl2psextension.cpp")
++
++target_link_libraries(gl2psextension gl2ps)
+ 
+ # Symmetry (libmsym) has compile issues on Windows
+ # due to VLA not supported by C compiler

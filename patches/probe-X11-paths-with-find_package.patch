@@ -1,0 +1,16 @@
+Index: avogadro-1.2.0/avogadro/src/CMakeLists.txt
+===================================================================
+--- avogadro-1.2.0.orig/avogadro/src/CMakeLists.txt
++++ avogadro-1.2.0/avogadro/src/CMakeLists.txt
+@@ -128,6 +128,11 @@ if(ENABLE_UPDATE_CHECKER)
+   target_link_libraries(avogadro-app ${QT_QTNETWORK_LIBRARY})
+ endif()
+ 
++if(Q_WS_X11)
++  find_package(X11 REQUIRED)
++  target_link_libraries(avogadro-app ${X11_X11_LIB})
++endif()
++
+ if(APPLE)
+   set(MACOSX_BUNDLE_INFO_STRING "Avogadro - version ${Avogadro_VERSION_FULL}")
+   set(MACOSX_BUNDLE_BUNDLE_VERSION ${Avogadro_VERSION_FULL})

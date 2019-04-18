@@ -1,0 +1,7 @@
+probe-X11-paths-with-find_package.patch
+boost148.patch
+eigen3.patch
+gcc-version.diff
+libmsymfloat.patch
+eigen3_lib.patch
+libsymspg.patch

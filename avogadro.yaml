@@ -1,0 +1,27 @@
+name: avogadro
+buildsystem: cmake
+builddir: true
+config-opts:
+- -DOpenGL_GL_PREFERENCE=GLVND
+- -DCMAKE_BUILD_TYPE=Release
+- -DPREFIX=/app
+- -DCMAKE_INSTALL_PREFIX=/app
+sources:
+- type: archive
+  url: https://downloads.sourceforge.net/project/avogadro/avogadro/1.2.0/avogadro-1.2.0.tar.gz
+  sha256: 6453e36e8ae3e61655cbe062df6d6fa6b2409122c7b5abc0a6f1d410a181640b
+# debian patches
+- type: patch
+  path: patches/probe-X11-paths-with-find_package.patch
+- type: patch
+  path: patches/boost148.patch
+- type: patch
+  path: patches/eigen3.patch
+- type: patch
+  path: patches/gcc-version.diff
+- type: patch
+  path: patches/libmsymfloat.patch
+- type: patch
+  path: patches/eigen3_lib.patch
+- type: patch
+  path: patches/libsymspg.patch

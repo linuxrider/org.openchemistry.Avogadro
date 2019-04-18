@@ -1,0 +1,25 @@
+name: python-pyqt4
+buildsystem: simple
+no-autogen: true
+build-commands:
+- python configure.py --confirm-license --assume-shared --destdir /app/lib/python2.7/site-packages
+  --bindir /app/bin  --sipdir /app/share/sip/PyQt4
+- make -j4
+- make install
+sources:
+- type: archive
+  url: http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.3/PyQt4_gpl_x11-4.12.3.tar.gz
+  sha256: a00f5abef240a7b5852b7924fa5fdf5174569525dc076cd368a566619e56d472
+modules:
+- name: python-sip
+  buildsystem: simple
+  no-autogen: true
+  build-commands:
+  - python configure.py --destdir /app/lib/python2.7/site-packages --bindir /app/bin
+    --incdir /app/include --sipdir /app/share/sip --stubsdir /app/lib/python2.7/site-packages
+  - make
+  - make install
+  sources:
+  - type: archive
+    url: https://www.riverbankcomputing.com/static/Downloads/sip/4.19.15/sip-4.19.15.tar.gz
+    sha256: 2b5c0b2c0266b467b365c21376d50dde61a3236722ab87ff1e8dacec283eb610
